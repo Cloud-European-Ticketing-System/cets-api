@@ -1,0 +1,33 @@
+div.content > div.markdown {
+  max-height: 450px;
+  overflow: auto;
+}
+
+.swagger-section .swagger-ui-wrap div.info pre.changelog {
+  font-size: 10pt;
+  border: 0;
+  background-color: transparent;
+  max-height: 300px;
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.swagger-section .swagger-ui-wrap .info_description pre {
+  padding: 2px;
+}
+
+.swagger-section .swagger-ui-wrap .info_description code {
+  font-size: 8pt;
+}
+
+.swagger-section h4 {
+  margin-bottom: 4px;
+}
+
+.swagger-section table {
+  margin-bottom: 10px;
+}
+
+#changelog {
+  padding-top: 15px;
+}

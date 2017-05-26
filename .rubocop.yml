@@ -1,0 +1,13 @@
+AllCops:
+  TargetRubyVersion: 2.4
+
+Metrics/MethodLength:
+  Max: 10
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - '**/*.rake'
