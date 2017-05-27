@@ -1,5 +1,5 @@
 module CETS
-  class UsersEndpoint < ::Grape::API
+  class UsersEndpoint < Grape::API
     resource :users do
       desc 'Return all fucking users.'
       get '/' do

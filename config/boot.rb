@@ -12,7 +12,11 @@ API_VERSION = File.read(File.join(API_ROOT, 'version')).gsub(/[\n\r]/, '') unles
 Bundler.require(:default, API_ENV)
 require 'active_record'
 
+ActiveRecord::Base.configurations = YAML::load(File.open("#{API_ROOT}/config/database.yml"))
+ActiveRecord::Base.establish_connection(API_ENV.to_sym)
+
 files_to_load = [
+  'lib/repository/storage/models/*.rb',
   'lib/api/v1/*.rb',
   'lib/api/v1.rb',
   'lib/api/core.rb'

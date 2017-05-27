@@ -49,6 +49,7 @@ GEM
     mustermann (1.0.0)
     mustermann-grape (1.0.0)
       mustermann (~> 1.0.0)
+    mysql2 (0.4.6)
     parallel (1.11.2)
     parser (2.4.0.0)
       ast (~> 2.2)
@@ -103,6 +104,7 @@ DEPENDENCIES
   activerecord (< 5.0.0.0)
   grape
   grape-swagger
+  mysql2
   pry
   rack-cors (~> 0.4.0)
   rspec
