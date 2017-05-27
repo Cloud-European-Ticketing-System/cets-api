@@ -1,6 +1,6 @@
 module CETS
   class DevicesEndpoint < Grape::API
-    resource :device_scans do
+    resource :devices do
       desc 'Create a device.'
       params do
         requires :type, type: String, desc: 'Device type (card, phone, etc)'

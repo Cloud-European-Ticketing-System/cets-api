@@ -6,11 +6,11 @@ module CETS
       end
 
       def create(type, token, user_id)
-        Device.create(
-          type: type,
-          token: token,
-          user_id: user_id
-        )
+        Device.create({
+          device_type: type,
+          token:       token,
+          user_id:     user_id
+        })
       end
     end
   end

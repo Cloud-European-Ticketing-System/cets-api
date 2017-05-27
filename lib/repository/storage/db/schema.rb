@@ -31,11 +31,11 @@ ActiveRecord::Schema.define(version: 20170527114436) do
   add_index "device_scans", ["device_id"], name: "index_device_scans_on_device_id", using: :btree
 
   create_table "devices", force: :cascade do |t|
-    t.string   "type",       limit: 255
-    t.string   "token",      limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "user_id",    limit: 4
+    t.string   "device_type", limit: 255
+    t.string   "token",       limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "user_id",     limit: 4
   end
 
   add_index "devices", ["user_id"], name: "index_devices_on_user_id", using: :btree

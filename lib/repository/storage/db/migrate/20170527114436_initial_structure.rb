@@ -25,7 +25,7 @@ class InitialStructure < ActiveRecord::Migration
     end
 
     create_table :devices do |t|
-      t.string :type
+      t.string :device_type
       t.string :token
       t.timestamps null: false
 
