@@ -23,6 +23,19 @@ class InitialStructure < ActiveRecord::Migration
       t.references :location, index: true, foreign_key: true
       t.references :company, index: true
     end
+
+    create_table :devices do |t|
+      t.string :type
+      t.string :token
+      t.timestamps null: false
+
+      t.references :user, index: true, foreign_key: true
+    end
+
+    create_table :device_scans do |t|
+      t.timestamps null: false
+      t.references :device, index: true, foreign_key: true
+    end
   end
 
   def self.down

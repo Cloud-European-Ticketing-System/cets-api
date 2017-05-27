@@ -15,18 +15,36 @@ ActiveRecord::Schema.define(version: 20170527114436) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name",        limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "location_id", limit: 4
   end
 
   add_index "companies", ["location_id"], name: "index_companies_on_location_id", using: :btree
 
+  create_table "device_scans", force: :cascade do |t|
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "device_id",  limit: 4
+  end
+
+  add_index "device_scans", ["device_id"], name: "index_device_scans_on_device_id", using: :btree
+
+  create_table "devices", force: :cascade do |t|
+    t.string   "type",       limit: 255
+    t.string   "token",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "user_id",    limit: 4
+  end
+
+  add_index "devices", ["user_id"], name: "index_devices_on_user_id", using: :btree
+
   create_table "locations", force: :cascade do |t|
     t.string   "address",    limit: 255
     t.string   "country",    limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -34,8 +52,8 @@ ActiveRecord::Schema.define(version: 20170527114436) do
     t.string   "last_name",   limit: 255
     t.string   "telephone",   limit: 255
     t.string   "password",    limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "location_id", limit: 4
     t.integer  "company_id",  limit: 4
   end
@@ -44,5 +62,7 @@ ActiveRecord::Schema.define(version: 20170527114436) do
   add_index "users", ["location_id"], name: "index_users_on_location_id", using: :btree
 
   add_foreign_key "companies", "locations"
+  add_foreign_key "device_scans", "devices"
+  add_foreign_key "devices", "users"
   add_foreign_key "users", "locations"
 end

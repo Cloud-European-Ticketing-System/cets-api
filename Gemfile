@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 ruby '2.4.0'
@@ -8,8 +10,12 @@ gem 'grape-swagger'
 gem 'mysql2'
 gem 'rack-cors', '~> 0.4.0'
 
-group :development do
+group :development, :test do
+  gem 'database_cleaner'
+  gem 'factory_girl'
   gem 'pry'
+  gem 'rack-test'
   gem 'rspec'
   gem 'rubocop'
+  gem 'simplecov'
 end

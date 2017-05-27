@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module CETS
   class UsersEndpoint < Grape::API
     resource :users do

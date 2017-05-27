@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 module CETS
   class Core < Grape::API
-    # version 'v1', using: :header, vendor: 'CETS', strict: true, cascade: false
-    version 'v1', using: :path
+    format :json
+
+    # Versioned API
     mount V1
 
     SWAGGER_INFO = {
@@ -11,5 +14,11 @@ module CETS
 
     add_swagger_documentation api_version: 'v1',
                               info: SWAGGER_INFO
+
+    def self.app
+      Rack::Builder.new do
+        run Core
+      end
+    end
   end
 end

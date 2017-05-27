@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Boot
 require_relative('config/boot')
 
@@ -9,7 +11,7 @@ require 'rack/cors'
 use Rack::Cors do
   allow do
     origins '*'
-    resource '*', headers: :any, methods: [ :get, :post, :put, :delete ]
+    resource '*', headers: :any, methods: %i[get post put delete]
   end
 end
 
